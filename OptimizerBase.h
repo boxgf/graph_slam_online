@@ -1,6 +1,7 @@
 #ifndef OPTIMIZERBASE_H
 #define OPTIMIZERBASE_H
 #include <iostream>
+#include <vector>
 using namespace std;
 
 class OptVar
@@ -16,10 +17,14 @@ public:
 
 class OptimizerBase
 {
+
 public:
-    void addConstraints(Constraint &inputConstraint);
+    static int numConstraints;
+
+    void addConstraints(Constraint *inputConstraint);
     void optimize();
     OptimizerBase();
+
 };
 
 

@@ -2,9 +2,10 @@
 #include <sys/time.h>
 #include "sensor.cpp"
 #include "OptimizerBase.cpp"
-
+#include <iostream>
 int main ()
 {
+std::cout<<"Start"<<std::endl;
 struct timeval t1, t2;
 gettimeofday(&t1, NULL); // Intial time
 double time;
@@ -16,15 +17,15 @@ while (true){
     time = (t2.tv_sec - t1.tv_sec)*10  + (t2.tv_usec - t1.tv_usec)/100000.0; // in centiseconds
 
     if (int(time) % (int)lidar1.samplingRate == 0){
-    lidar1. createFactor();
+    lidar1. addFactor();
     }
 
     if (int(time) % (int)odom1.samplingRate == 0){
-    odom1. createFactor();
+    odom1. addFactor();
     }
 
     if (int(time) % (int)cam1.samplingRate == 0){
-    odom1. createFactor();
+    cam1. addFactor();
     }
 
 }
