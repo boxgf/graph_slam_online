@@ -5,14 +5,23 @@ using namespace std;
 
 class OptVar
 {
+public:
+    OptVar(){}
+};
+
+class Constraint{
+public:
+    Constraint(){}
 };
 
 class OptimizerBase
 {
 public:
-    void addConstraints(isEqual);
+    void addConstraints(Constraint &inputConstraint);
     void optimize();
     OptimizerBase();
 };
+
+
 
 #endif /* OPTIMIZERBASE_H */
